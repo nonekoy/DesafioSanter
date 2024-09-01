@@ -1,6 +1,6 @@
 
 
-#variáveis globais
+# Variáveis globais
 default_list = [10,20,30,41,53]
 created_list = []
 allow_duplicates = True
@@ -8,7 +8,7 @@ sorted_pairs = False
 unique_pairs = False
 digit = int()
 
-#diminuir repetições
+# Diminuir repetições
 def choice(): 
     while True:
         try:
@@ -19,7 +19,7 @@ def choice():
         except:
             print("entrada inválida")
 
-#muda os parâmetros
+# Muda os parâmetros
 def configure(): 
     global allow_duplicates
     global sorted_pairs
@@ -32,13 +32,14 @@ def configure():
     print("unique_pairs 1= on 2= off")
     unique_pairs = choice()
 
-def minor_pairs(listed, allow_duplicates, sorted_pairs, unique_pairs): #função que pega o par com menor diferença
+# Função que pega o par com menor diferença
+def minor_pairs(listed, allow_duplicates, sorted_pairs, unique_pairs): 
     minor_distance = float('inf')
     result = []
     if len(listed)<2:
         return []
     listed.sort()
-    if not allow_duplicates: #se for falso remove todos os resultados duplicados da lista
+    if not allow_duplicates: # Se for falso remove todos os resultados duplicados da lista
         listed = set(listed)
 
     for i in range(len(listed)-1):
@@ -51,10 +52,10 @@ def minor_pairs(listed, allow_duplicates, sorted_pairs, unique_pairs): #função
         if distance == minor_distance:
             result.append((listed[i], listed[i+1]))
     
-    if sorted_pairs:    #só reorganiza os pares se ativo
+    if sorted_pairs:    # Só reorganiza os pares se ativo
         result.sort()
     
-    if unique_pairs:  #remove os pares repetidos
+    if unique_pairs:  # Remove os pares repetidos
         result = list(set(result))
         #result.sort()
         #final = list(pair) for pair in result
@@ -63,7 +64,7 @@ def minor_pairs(listed, allow_duplicates, sorted_pairs, unique_pairs): #função
         
 
 while True:
-    try: #match case com tratamento de exceções
+    try: # Match case com tratamento de exceções
         op = int(input("Digite uma opção: Criar lista(1), usar lista existente(2), mudar configurações(3), fechar (4) \n"))
         match op:
             case 1:

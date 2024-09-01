@@ -1,5 +1,6 @@
 
 
+# Função que cria a lista com asteriscos
 def star_list(x): 
     list=[]
     for i in range(x):

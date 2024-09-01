@@ -1,17 +1,19 @@
+
+
 from itertools import combinations
 
-#variaveis globais
+# Variaveis globais
 list_default = [1,2,3,4]
 
-#função para listar subconjuntos
+# Função para listar subconjuntos
 def subgroup(grouplist,max_size=None, min_size=None, distinct_only=False, sort_subsets=False):
     if distinct_only:
         conjunto = list(set(grouplist))
 
-    if sort_subsets: #ordena a lista
+    if sort_subsets: # Ordena a lista
         grouplist.sort()
 
-    subgrouplists = [[]] #vazio
+    subgrouplists = [[]] # Começa vazio
 
     for lenghtin in range(1, len(grouplist) + 1):
         if (min_size is not None and lenghtin < min_size) or (max_size is not None and lenghtin > max_size):
